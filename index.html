@@ -11,8 +11,8 @@
 	<div class="container" ng-controller='piController' ng-cloak>
 
 		<div class="col-md-12" ng-cloak>
-			<button ng-show='!lightOn' ng-disabled='disabled' ng-class="messages.btn" class='btn-warning' type='button' ng-click='turnOn()'> <i ng-class="messages.icon.on"></i> {{messages.on}}</button>
-			<button ng-show='lightOn' ng-disabled='disabled' ng-class="messages.btn" class='btn-primary' type='button' ng-click='turnOff()'> <i ng-class="messages.icon.off"></i> {{messages.off}}</button>
+			<button ng-show='!lightOn' ng-disabled='disabled' ng-class="messages.btn" class='btn-warning' type='button' ng-click='powerOn()'> <i ng-class="messages.icon.on"></i> {{messages.on}}</button>
+			<button ng-show='lightOn' ng-disabled='disabled' ng-class="messages.btn" class='btn-primary' type='button' ng-click='powerOff()'> <i ng-class="messages.icon.off"></i> {{messages.off}}</button>
 		</div>
 
 		<div class="col-md-12 text-center spinner-message" ng-show="disabled">

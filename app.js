@@ -9,38 +9,37 @@
       on:'Enciende la luz',
       icon:{on:'fa fa-lightbulb-o', off:'fa fa-power-off'},
       btn: 'btn btn-block btn-lg'};
-    $scope.lightOn = false;
-    $scope.disabled = false;
+    //$scope.lightOn = false;
+    //$scope.disabled = false;
 
-    socket.on('init', function (data) {
-      console.log(data);
+    socket.on('init', function (response) {
+      $scope.lightOn = response.message;
+      $scope.disabled = false;
+    });
+    socket.on('messageToClient', function (response) {
+      $scope.lightOn = response.message;
+      $scope.disabled = false;
     });
 
-    $scope.turnOn = function() {
-      console.log('prendiendo');
-      $scope.disabled = true;
+    $scope.powerOn = function() {
       $scope.lightOn = true;
-      $timeout(function(){$scope.disabled = false;},1000);
-      //$scope.inServer('on');
+      $scope.disabled = true;
+      $scope.sendMessage();
     };
 
-    $scope.turnOff = function() {
-      console.log('apagando');
+    $scope.powerOff = function() {
       $scope.lightOn = false;
       $scope.disabled = true;
-      $timeout(function(){$scope.disabled = false;},1000);
-      //$scope.inServer('off');
+      $scope.sendMessage();
     };
 
-    $scope.inServer = function(action) {
-      var data = {action: action};
-        $http({method:'POST',url: 'api/server.php', data:$.param(data), headers : { 'Content-Type': 'application/x-www-form-urlencoded' }}).success(function(response) {
-          console.log( response );
-      }).error(function(data, status){ });
+    $scope.sendMessage = function () {
+      socket.emit('messageFromClient', { ledStatus: $scope.lightOn });
     };
+
   }])
   .factory('socket', function ($rootScope) {
-    var connection = 'ws://10.10.10.9:3000/';
+    var connection = 'ws://10.10.10.11:3000/';
     var socket = io.connect(connection);
     return {
       on: function (eventName, callback) {
