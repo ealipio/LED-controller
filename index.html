@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CSLUNI</title>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://fortawesome.github.io/Font-Awesome/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body ng-app="EissonApp" class='transition off' ng-cloak>
+	<div class="container" ng-controller='piController' ng-cloak>
+
+		<div class="col-md-12" ng-cloak>
+			<button ng-show='!lightOn' ng-disabled='disabled' ng-class="messages.btn" class='btn-warning' type='button' ng-click='turnOn()'> <i ng-class="messages.icon.on"></i> {{messages.on}}</button>
+			<button ng-show='lightOn' ng-disabled='disabled' ng-class="messages.btn" class='btn-primary' type='button' ng-click='turnOff()'> <i ng-class="messages.icon.off"></i> {{messages.off}}</button>
+		</div>
+
+		<div class="col-md-12 text-center spinner-message" ng-show="disabled">
+			<span class="label label-default">
+				<i class="fa fa-cog fa-spin fa-fw"></i>
+				Waiting for server response...</span>
+		</div>
+	</div>
+	<!-- Scripts -->
+	<!-- <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script> -->
+	<script src="https://code.angularjs.org/1.5.8/angular.min.js"></script>
+	<script src="socket.io.js"></script>
+	<!-- <script src="https://code.angularjs.org/1.5.8/angular-route.min.js"></script> -->
+	<script src='app.js'></script>
+</body>
+</html>

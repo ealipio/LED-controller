@@ -1,0 +1,31 @@
+body{
+	background: #000;
+}
+
+.btn{
+	height: 150px;
+	font-size: 3.5em;
+}
+.btn i{
+color: #a94442;
+}
+.container{
+	margin-top: 27vh;
+}
+.label{
+	font-size: 1.5em;
+}
+.off{
+	background:#333;
+}
+.on{
+	background:#74FE2D;
+}
+.spinner-message{
+	margin-top: 3em;
+}
+.transition{
+    transition: all .15s ease-in-out;
+    -moz-transition: all .15s ease-in-out;
+    -webkit-transition: all .15s
+}
