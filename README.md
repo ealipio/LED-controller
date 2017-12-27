@@ -1,3 +1,4 @@
+[![license](https://img.shields.io/github/license/ealipio/teste.svg)]()
 # LED-PI
 Ejemplo de aplicacion y uso del Raspberry PI para controlar un LED mediante una interfaz web usando lo siguiente:
 
